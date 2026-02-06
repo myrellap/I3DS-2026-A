@@ -1,0 +1,107 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.card button {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.8em 1.5em;
+  font-size: 1.05em;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: white;
+  border: 2px solid transparent;
+}
+
+.card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.4);
+  border-color: var(--primary-hover);
+}
+
+.card button:active {
+  transform: translateY(0);
+}
+
+.card .secondary-btn {
+  background: linear-gradient(135deg, #888, #666);
+  color: white;
+}
+
+.card .secondary-btn:hover {
+  box-shadow: 0 4px 12px rgba(136, 136, 136, 0.4);
+}
+
+.card .theme-btn {
+  background: linear-gradient(135deg, #61dafb, #1e90ff);
+  color: white;
+}
+
+.card .theme-btn:hover {
+  box-shadow: 0 4px 12px rgba(97, 218, 251, 0.4);
+}
+
+.read-the-docs {
+  color: #888;
+  font-size: 0.95em;
+  margin-top: 1.5em;
+}
+
+@media (prefers-color-scheme: light) {
+  .read-the-docs {
+    color: #646464;
+  }
+
+  .card button {
+    color: white;
+  }
+
+  .card button:hover {
+    box-shadow: 0 4px 12px rgba(100, 108, 255, 0.3);
+  }
+}
