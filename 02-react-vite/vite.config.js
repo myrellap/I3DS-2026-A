@@ -10,4 +10,3 @@ export default defineConfig({
     host: true, // permite que tenha acesso via IP na rede local
   },
 });
-
