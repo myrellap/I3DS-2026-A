@@ -24,11 +24,13 @@ function App() {
       </div>
 
 
-      <div id='socialLinks'></div>
+      <div id='SocialLinks'>
+
       <SocialLink url={"https://github.com"} icon={"logo-github"} />
       <SocialLink url={"https://instagram.com"} icon={"logo-instagram"} />
       <SocialLink url={"https://youtube.com"} icon={"logo-youtube"} />
       <SocialLink url={"https://linkedin.com"} icon={"logo-linkedin"} /> 
+      </div>
     
     
     <Rodape>Myrella Putti</Rodape>
