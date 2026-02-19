@@ -9,4 +9,4 @@ export default defineConfig({
     open: true, //Abre o navegador automaticamente
     host: true, //Permite que tenha acesso via IP na rede local
   },
-})
+});
