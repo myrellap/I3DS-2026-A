@@ -4,12 +4,16 @@ namespace PrimeiraAPI.Models
 {
     public class Curso
     {
-        public Guid Id { get; set; }
+        public Guid CursoId { get; set; }
         [Required]
-        public string? Nome { get; set; }
+        public string? Nome { get; set; } 
         public int? Semestres { get; set; }  
         public bool? Ativo { get; set; }
-
+        [DataType(DataType.Currency)]
+        public decimal? Mensalidade { get; set; }
+       
+        // Propriedade de navegação para a relação N:M com Curso
+        public ICollection<Aluno>? Alunos { get; set; } = new List<Aluno>();
 
     }
 }
