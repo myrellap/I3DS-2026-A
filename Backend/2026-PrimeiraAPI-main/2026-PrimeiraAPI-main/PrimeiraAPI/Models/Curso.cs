@@ -15,5 +15,7 @@ namespace PrimeiraAPI.Models
         // Propriedade de navegação para a relação N:M com Curso
         public ICollection<Aluno>? Alunos { get; set; } = new List<Aluno>();
 
+        public ICollection<Diciplina>? Diciplinas { get; set; } = new List<Diciplina>();
+
     }
 }
