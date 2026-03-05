@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import logo from "./assets/devflix.png";
+import logo from "./assets/Gemini_Generated_Image_v9612av9612av961.png";
 import lupa from "./assets/search.svg";
 
 import Rodape from "./components/Rodape/Rodape";
