@@ -3,13 +3,43 @@ import styles from "./MovieDescription.module.css";
 
 const MovieDescription = (props) => {
   const [movieDesc, setMovieDesc] = useState([]);
+  const [translatedPlot, setTranslatedPlot] = useState("");
+
+  const translateToPortuguese = async (text) => {
+    if (!text || text === "N/A") return text;
+
+    try {
+      const response = await fetch(
+        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=pt&dt=t&q=${encodeURIComponent(
+          text,
+        )}`,
+      );
+
+      const data = await response.json();
+      return data?.[0]?.map((chunk) => chunk?.[0]).join("") || text;
+    } catch (error) {
+      console.error("Erro ao traduzir sinopse:", error);
+      return text;
+    }
+  };
 
   useEffect(() => {
-    fetch(`${props.apiUrl}&i=${props.movieID}`)
-      .then((response) => response.json())
-      .then((data) => setMovieDesc(data))
-      .catch((error) => console.error(error));
-  }, []);
+    const fetchMovieDetails = async () => {
+      try {
+        const response = await fetch(`${props.apiUrl}&i=${props.movieID}`);
+        const data = await response.json();
+
+        setMovieDesc(data);
+
+        const plotInPortuguese = await translateToPortuguese(data?.Plot);
+        setTranslatedPlot(plotInPortuguese);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchMovieDetails();
+  }, [props.apiUrl, props.movieID]);
 
   return (
     <div className={styles.modalBackdrop} onClick={props.click}>
@@ -46,7 +76,7 @@ const MovieDescription = (props) => {
           </div>
         </div>
         <div className={styles.desc}>
-          <p>Sinopse: {movieDesc.Plot}</p>
+          <p>Sinopse: {translatedPlot || movieDesc.Plot}</p>
         </div>
       </div>
     </div>
