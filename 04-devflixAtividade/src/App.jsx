@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 import logo from "./assets/bieberflix.png";
-import lupa from "./assets/search.svg";
+import lupa from "./assets/search-heart-fill.svg";
 
 import Rodape from "./components/Rodape/Rodape";
 import MovieCard from "./components/MovieCard/MovieCard";
