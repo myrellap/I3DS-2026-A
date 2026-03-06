@@ -4,16 +4,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--overlay-backdrop);
   z-index: 999;
   animation: fadeIn 0.3s ease-in-out forwards;
   transition: background 0.3s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  .modalBackdrop {
-    background: rgba(0, 0, 0, 0.4);
-  }
 }
 
 .movieModal {
@@ -72,7 +66,10 @@
   bottom: 0;
   width: 100%;
   height: 30%;
-  background: linear-gradient(rgba(255, 255, 255, 0), var(--bg-secondary));
+  background: linear-gradient(
+    rgba(255, 255, 255, 0),
+    var(--movie-gradient-end)
+  );
   transition: all 0.3s ease;
 
   & div:nth-of-type(1) {
@@ -153,11 +150,5 @@
   }
   to {
     opacity: 1;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .movieType {
-    background: linear-gradient(rgba(255, 255, 255, 0), #212426);
   }
 }

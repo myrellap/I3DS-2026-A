@@ -4,6 +4,8 @@ import styles from "./MovieDescription.module.css";
 const MovieDescription = (props) => {
   const [movieDesc, setMovieDesc] = useState([]);
   const [translatedPlot, setTranslatedPlot] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const translateToPortuguese = async (text) => {
     if (!text || text === "N/A") return text;
@@ -25,21 +27,47 @@ const MovieDescription = (props) => {
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
+      if (!props.apiKey) {
+        setErrorMessage("Chave da OMDB não configurada.");
+        return;
+      }
+
+      setIsLoading(true);
+      setErrorMessage("");
+      setTranslatedPlot("");
+
       try {
-        const response = await fetch(`${props.apiUrl}&i=${props.movieID}`);
+        const params = new URLSearchParams({
+          apikey: props.apiKey,
+          i: props.movieID,
+          plot: "full",
+        });
+
+        const response = await fetch(`${props.apiUrl}?${params.toString()}`);
+
+        if (!response.ok) {
+          throw new Error("Falha ao carregar detalhes do filme.");
+        }
+
         const data = await response.json();
+
+        if (data.Response === "False") {
+          throw new Error(data.Error || "Detalhes não encontrados na OMDB.");
+        }
 
         setMovieDesc(data);
 
         const plotInPortuguese = await translateToPortuguese(data?.Plot);
         setTranslatedPlot(plotInPortuguese);
       } catch (error) {
-        console.error(error);
+        setErrorMessage(error.message || "Erro ao buscar detalhes do filme.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchMovieDetails();
-  }, [props.apiUrl, props.movieID]);
+  }, [props.apiKey, props.apiUrl, props.movieID]);
 
   return (
     <div className={styles.modalBackdrop} onClick={props.click}>
@@ -59,6 +87,7 @@ const MovieDescription = (props) => {
               <a
                 href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 ▶️ Assistir
               </a>
@@ -76,7 +105,13 @@ const MovieDescription = (props) => {
           </div>
         </div>
         <div className={styles.desc}>
-          <p>Sinopse: {translatedPlot || movieDesc.Plot}</p>
+          {isLoading ? (
+            <p>Carregando detalhes...</p>
+          ) : errorMessage ? (
+            <p>{errorMessage}</p>
+          ) : (
+            <p>Sinopse: {translatedPlot || movieDesc.Plot}</p>
+          )}
         </div>
       </div>
     </div>
