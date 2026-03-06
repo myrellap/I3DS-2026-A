@@ -41,6 +41,8 @@
     height: 480px;
     object-fit: cover;
     object-position: top;
+    display: block;
+    background-color: #2a2a2a;
   }
 }
 

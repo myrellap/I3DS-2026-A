@@ -1,87 +1,193 @@
+@keyframes borderGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(147, 51, 234, 0.5),
+      0 0 40px rgba(168, 85, 247, 0.3),
+      inset 0 0 20px rgba(147, 51, 234, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(147, 51, 234, 0.8),
+      0 0 60px rgba(168, 85, 247, 0.6),
+      inset 0 0 30px rgba(147, 51, 234, 0.3);
+  }
+}
+
 .movie {
   inline-size: 310px;
   block-size: 460px;
   margin: 1.5rem;
   position: relative;
   overflow: hidden;
-  border: none;
-  box-shadow: 0px 13px 10px -7px var(--shadow-color);
-  border-radius: 10px;
-
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+    linear-gradient(135deg, #9333ea, #a855f7, #d946ef, #a855f7, #9333ea)
+      border-box;
+  box-shadow:
+    0px 13px 10px -7px var(--shadow-color),
+    0 0 0 1px rgba(147, 51, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  animation: glowPulse 3s ease-in-out infinite;
+}
 
-  /* Modificando o primeiro item "div" do elemento .movie */
-  /* ano */
-  & div:nth-of-type(1) {
-    position: absolute;
-    z-index: 3;
-    width: 100%;
-    top: 0;
-    color: var(--accent-color);
-    font-weight: bold;
-    text-align: center;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    padding: 10px 0;
+.movie::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  padding: 3px;
+  background: linear-gradient(
+    135deg,
+    #9333ea,
+    #a855f7,
+    #d946ef,
+    #a855f7,
+    #9333ea
+  );
+  background-size: 200% 200%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: borderGradient 4s ease-in-out infinite;
+  z-index: -1;
+}
 
-    background: var(--bg-secondary);
-  }
+.movie::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(199, 140, 255, 0.3),
+    rgba(186, 105, 233, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
 
-  /* Modificando o segundo item "div" do elemento .movie */
-  /* imagem */
-  & div:nth-of-type(2) {
-    height: 100%;
-    width: 100%;
+/* Modificando o primeiro item "div" do elemento .movie */
+/* ano */
+.movie div:nth-of-type(1) {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  top: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  padding: 10px 0;
+  background: var(--bg-secondary);
+}
 
-    & img {
-      height: 100%;
-      width: 100%;
-    }
-  }
+/* Modificando o segundo item "div" do elemento .movie */
+/* imagem */
+.movie div:nth-of-type(2) {
+  height: 100%;
+  width: 100%;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  /* Modificando o terceiro item "div" do elemento .movie */
-  /* Titulo */
-  & div:nth-of-type(3) {
-    z-index: 2;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 24px 24px;
-    background: var(--bg-secondary);
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
-    transition: all 0.3s ease;
+/* Modificando o terceiro item "div" do elemento .movie */
+/* Titulo */
+.movie div:nth-of-type(3) {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 24px 24px;
+  background: var(--bg-secondary);
+  transition: all 0.3s ease;
+}
 
-    & span {
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      color: var(--text-secondary);
-    }
+.movie div:nth-of-type(3) span {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
 
-    & h3 {
-      margin-top: 5px;
-      color: var(--accent-color);
-      transition: color 0.3s ease;
-    }
-  }
+.movie div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
 
-  /* Estado ao passar o mouse por cima do bloco "MovieCard" */
-  &:hover {
-    box-shadow: 0 30px 18px -8px rgba(0, 0, 0, 0.4);
-    transform: scale(1.05);
+/* Estado ao passar o mouse por cima do bloco "MovieCard" */
+.movie:hover {
+  box-shadow:
+    0 30px 40px rgba(186, 105, 233, 0.4),
+    0 0 0 1px rgba(199, 140, 255, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: scale(1.05) translateY(-5px);
+  border-color: rgba(199, 140, 255, 0.8);
+}
 
-    & div:nth-of-type(1) {
-      opacity: 1;
-    }
+.movie:hover div:nth-of-type(1) {
+  opacity: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(186, 105, 233, 0.95),
+    rgba(199, 140, 255, 0.9)
+  );
+}
 
-    & div:nth-of-type(2) {
-      opacity: 0.7;
-    }
+.movie:hover div:nth-of-type(2) {
+  opacity: 0.85;
+}
 
-    & div:nth-of-type(3) {
-      /* background-color: transparent; */
-    }
-  }
+.movie:hover div:nth-of-type(3) {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    var(--bg-secondary)
+  );
+}
+
+.movie:hover::before {
+  opacity: 1;
+}
+
+.movie:hover::after {
+  opacity: 1;
 }

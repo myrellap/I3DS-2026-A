@@ -165,7 +165,18 @@ const MovieDescription = (props) => {
     <div className={styles.modalBackdrop} onClick={props.click}>
       <div className={styles.movieModal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.movieInfo}>
-          <img src={movieDesc.Poster} alt="" />
+          <img
+            src={
+              movieDesc.Poster !== "N/A"
+                ? movieDesc.Poster
+                : "https://via.placeholder.com/850x480/ba69e9/ffffff?text=No+Image"
+            }
+            alt={movieDesc.Title || "Movie poster"}
+            onError={(e) => {
+              e.target.src =
+                "https://via.placeholder.com/850x480/ba69e9/ffffff?text=Image+Error";
+            }}
+          />
 
           <button className={styles.btnClose} onClick={props.click}>
             X
@@ -173,7 +184,6 @@ const MovieDescription = (props) => {
 
           <div className={styles.movieType}>
             <div>
-              <img src="/favicon.png" alt="" />
               {translatedData.Type || movieDesc.Type}
               <h1>{translatedData.Title || movieDesc.Title}</h1>
               <a
