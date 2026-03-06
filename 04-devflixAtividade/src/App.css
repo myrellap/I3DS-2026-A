@@ -76,6 +76,140 @@ body {
   align-items: center;
 }
 
+.languageSelector {
+  position: fixed;
+  right: 1.5rem;
+  top: 1.5rem;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+}
+
+.languageToggle {
+  border: none;
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #c78cff 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 24px var(--shadow-color);
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+  overflow: hidden;
+  isolation: isolate;
+  animation: floatPulse 3s ease-in-out infinite;
+}
+
+@keyframes floatPulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.08);
+  }
+}
+
+.languageToggle::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.languageToggle:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px var(--shadow-color);
+  animation: none;
+}
+
+.languageToggle:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.languageDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-primary);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 160px;
+  animation: dropdownFadeIn 0.3s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.languageOption {
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: left;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.languageOption:hover {
+  background-color: var(--bg-primary);
+  color: #ffffff;
+}
+
+.languageOption.active {
+  background-color: var(--bg-primary);
+  color: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+  .languageSelector {
+    right: 1rem;
+    top: 1rem;
+  }
+}
+
 .themeToggle {
   position: fixed;
   right: 1.5rem;
@@ -166,33 +300,158 @@ body {
   justify-content: center;
   padding: 1.5rem 1.75rem;
   border-radius: 4rem;
-  background: var(--bg-secondary);
-  box-shadow: var(--shadow);
+  background: linear-gradient(
+    135deg,
+    rgba(186, 105, 233, 0.08),
+    rgba(199, 140, 255, 0.12)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(186, 105, 233, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(186, 105, 233, 0.3);
+}
 
-  -webkit-box-shadow: var(--shadow);
+.search::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 4rem;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #ba69e9,
+    #c78cff,
+    #e7ccff,
+    #c78cff,
+    #ba69e9
+  );
+  background-size: 200% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: borderFlow 4s linear infinite;
+}
 
+.search::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(199, 140, 255, 0.4),
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.search:hover,
+.search:focus-within {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 20px 50px rgba(186, 105, 233, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(199, 140, 255, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(186, 105, 233, 0.15),
+    rgba(199, 140, 255, 0.2)
+  );
+}
+
+.search:hover::before,
+.search:focus-within::before {
+  opacity: 1;
+}
+
+.search:focus-within::after {
+  width: 600px;
+  height: 600px;
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding-right: 1rem;
+  color: var(--text-primary);
+  background: transparent;
+  font-size: 1.5rem;
+  font-weight: 500;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
 
-  & input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding-right: 1rem;
-    color: var(--text-primary);
-    background: var(--bg-secondary);
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+.search input::placeholder {
+  color: #ba69e9;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.search:focus-within input::placeholder {
+  transform: translateX(8px);
+  opacity: 0.4;
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    filter 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(186, 105, 233, 0.3));
+  position: relative;
+  z-index: 1;
+}
+
+.search img:hover {
+  transform: scale(1.2) rotate(20deg);
+  filter: drop-shadow(0 4px 12px rgba(199, 140, 255, 0.8));
+  animation: searchIconPulse 0.8s ease;
+}
+
+.search img:active {
+  transform: scale(1.1) rotate(10deg);
+}
+
+@keyframes searchIconPulse {
+  0%,
+  100% {
+    transform: scale(1.2) rotate(20deg);
   }
-
-  & input::placeholder {
-    color: var(--text-placeholder);
-  }
-
-  & img {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
+  50% {
+    transform: scale(1.35) rotate(20deg);
   }
 }
 

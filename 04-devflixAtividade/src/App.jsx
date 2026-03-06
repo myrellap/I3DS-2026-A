@@ -7,6 +7,17 @@ import lupa from "./assets/search-heart-fill.svg";
 import Rodape from "./components/Rodape/Rodape";
 import MovieCard from "./components/MovieCard/MovieCard";
 
+const LANGUAGES = [
+  { code: "pt", name: "🇧🇷 Português", flag: "🇵🇹" },
+  { code: "en", name: "🇺🇸 English", flag: "🇺🇸" },
+  { code: "es", name: "🇪🇸 Español", flag: "🇪🇸" },
+  { code: "fr", name: "🇫🇷 Français", flag: "🇫🇷" },
+  { code: "de", name: "🇩🇪 Deutsch", flag: "🇩🇪" },
+  { code: "it", name: "🇮🇹 Italiano", flag: "🇮🇹" },
+  { code: "ja", name: "🇯🇵 日本語", flag: "🇯🇵" },
+  { code: "zh", name: "🇨🇳 中文", flag: "🇨🇳" },
+];
+
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
@@ -15,6 +26,10 @@ const App = () => {
   const [theme, setTheme] = useState(
     document.documentElement.getAttribute("data-theme") || "light",
   );
+  const [language, setLanguage] = useState(
+    localStorage.getItem("devflix-language") || "pt",
+  );
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
   //Utilizando uma CHAVE de API do arquivo .env
   const apiKey = import.meta.env.VITE_OMDB_API_KEY;
@@ -90,11 +105,41 @@ const App = () => {
     setTheme(nextTheme);
   };
 
+  const handleLanguageChange = (languageCode) => {
+    setLanguage(languageCode);
+    localStorage.setItem("devflix-language", languageCode);
+    setIsLanguageOpen(false);
+  };
+
   return (
     <div id="App">
       <button className="themeToggle" onClick={toggleTheme}>
         {theme === "dark" ? "☀️ Ligth" : "🌙 Dark"}
       </button>
+
+      <div className="languageSelector">
+        <button
+          className="languageToggle"
+          onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+        >
+          {LANGUAGES.find((lang) => lang.code === language)?.flag}{" "}
+          {language.toUpperCase()}
+        </button>
+
+        {isLanguageOpen && (
+          <div className="languageDropdown">
+            {LANGUAGES.map((lang) => (
+              <button
+                key={lang.code}
+                className={`languageOption ${language === lang.code ? "active" : ""}`}
+                onClick={() => handleLanguageChange(lang.code)}
+              >
+                {lang.name}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       <img
         id="Logo"
@@ -119,7 +164,13 @@ const App = () => {
       {movies?.length > 0 ? (
         <div className="container">
           {movies.map((movie, index) => (
-            <MovieCard key={index} {...movie} apiUrl={apiUrl} apiKey={apiKey} />
+            <MovieCard
+              key={index}
+              {...movie}
+              apiUrl={apiUrl}
+              apiKey={apiKey}
+              language={language}
+            />
           ))}
         </div>
       ) : isLoading ? (
