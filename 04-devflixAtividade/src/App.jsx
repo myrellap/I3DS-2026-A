@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      await searchMovies("one piece"); // termo para pesquina ao carregar o site
+      await searchMovies("Justin Bieber"); // termo para pesquisa ao carregar o site
     })();
   }, []);
 
