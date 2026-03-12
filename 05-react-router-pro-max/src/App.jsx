@@ -23,12 +23,10 @@ function App() {
       </Routes>
       </div>
 
-      <Footer
-        link={"https://github.com/ProfCastello"}
-        escritoLink={"ProfCastello"}
-      />    
+      <Rodape>CacheiroHi</Rodape>
     </>
   );
 }
+
 
 export default App;
