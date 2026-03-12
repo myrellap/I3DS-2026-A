@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|c:\\users\\23951908882\\desktop\\i3ds-2026-a\\backend\\2026-primeiraapi-main\\2026-primeiraapi-main\\primeiraapi\\models\\diciplinacurso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|solutionrelative:primeiraapi\\models\\diciplinacurso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|c:\\users\\23951908882\\desktop\\i3ds-2026-a\\backend\\2026-primeiraapi-main\\2026-primeiraapi-main\\primeiraapi\\models\\diciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|solutionrelative:primeiraapi\\models\\diciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|c:\\users\\23951908882\\desktop\\i3ds-2026-a\\backend\\2026-primeiraapi-main\\2026-primeiraapi-main\\primeiraapi\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|solutionrelative:primeiraapi\\models\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|c:\\users\\23951908882\\desktop\\i3ds-2026-a\\backend\\2026-primeiraapi-main\\2026-primeiraapi-main\\primeiraapi\\models\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|solutionrelative:primeiraapi\\models\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|c:\\users\\23951908882\\desktop\\i3ds-2026-a\\backend\\2026-primeiraapi-main\\2026-primeiraapi-main\\primeiraapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D562DA17-7AE4-D6C0-7249-419442849EDA}|PrimeiraAPI\\PrimeiraAPI.csproj|solutionrelative:primeiraapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "PrimeiraAPI\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "PrimeiraAPI\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T19:18:40.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DiciplinaCurso.cs",
+              "DocumentMoniker": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\DiciplinaCurso.cs",
+              "RelativeDocumentMoniker": "PrimeiraAPI\\Models\\DiciplinaCurso.cs",
+              "ToolTip": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\DiciplinaCurso.cs",
+              "RelativeToolTip": "PrimeiraAPI\\Models\\DiciplinaCurso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T18:52:46.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Diciplina.cs",
+              "DocumentMoniker": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\Diciplina.cs",
+              "RelativeDocumentMoniker": "PrimeiraAPI\\Models\\Diciplina.cs",
+              "ToolTip": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\Diciplina.cs",
+              "RelativeToolTip": "PrimeiraAPI\\Models\\Diciplina.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T17:35:47.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Aluno.cs",
+              "DocumentMoniker": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\Aluno.cs",
+              "RelativeDocumentMoniker": "PrimeiraAPI\\Models\\Aluno.cs",
+              "ToolTip": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\Aluno.cs",
+              "RelativeToolTip": "PrimeiraAPI\\Models\\Aluno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T12:15:05.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Curso.cs",
+              "DocumentMoniker": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\Curso.cs",
+              "RelativeDocumentMoniker": "PrimeiraAPI\\Models\\Curso.cs",
+              "ToolTip": "C:\\Users\\23951908882\\Desktop\\I3DS-2026-A\\Backend\\2026-PrimeiraAPI-main\\2026-PrimeiraAPI-main\\PrimeiraAPI\\Models\\Curso.cs",
+              "RelativeToolTip": "PrimeiraAPI\\Models\\Curso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T11:47:26.006Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
