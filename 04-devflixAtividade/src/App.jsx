@@ -18,6 +18,128 @@ const LANGUAGES = [
   { code: "zh", name: "🇨🇳 中文", flag: "🇨🇳" },
 ];
 
+const TRANSLATIONS = {
+  pt: {
+    themeLight: "☀️ Claro",
+    themeDark: "🌙 Escuro",
+    logoAlt:
+      "Logotipo do serviço de streaming Devflix, com letras vermelhas e fundo preto, promovendo conteúdo de séries, filmes e entretenimento online.",
+    searchPlaceholder: "Pesquise por filmes",
+    searchAlt: "Botão de ação para pesquisa!",
+    missingApiKey:
+      "Configure a chave OMDB no arquivo .env (VITE_OMDB_API_KEY).",
+    typeMovie: "Digite um nome de filme para pesquisar.",
+    connectionFail: "Falha de conexão com a OMDB.",
+    searchError: "Erro ao buscar filmes na OMDB.",
+    loadingMovies: "🔎 Carregando filmes...",
+    movieNotFound: "😢 Filme não encontrado 😢",
+  },
+  en: {
+    themeLight: "☀️ Light",
+    themeDark: "🌙 Dark",
+    logoAlt:
+      "Devflix streaming service logo, with red lettering and black background, promoting series, movies and online entertainment.",
+    searchPlaceholder: "Search for movies",
+    searchAlt: "Search action button!",
+    missingApiKey:
+      "Configure the OMDB key in the .env file (VITE_OMDB_API_KEY).",
+    typeMovie: "Type a movie name to search.",
+    connectionFail: "Connection failure with OMDB.",
+    searchError: "Error while searching movies on OMDB.",
+    loadingMovies: "🔎 Loading movies...",
+    movieNotFound: "😢 Movie not found 😢",
+  },
+  es: {
+    themeLight: "☀️ Claro",
+    themeDark: "🌙 Oscuro",
+    logoAlt:
+      "Logotipo del servicio de streaming Devflix, con letras rojas y fondo negro, promoviendo series, películas y entretenimiento en línea.",
+    searchPlaceholder: "Buscar películas",
+    searchAlt: "¡Botón de acción de búsqueda!",
+    missingApiKey:
+      "Configura la clave OMDB en el archivo .env (VITE_OMDB_API_KEY).",
+    typeMovie: "Escribe el nombre de una película para buscar.",
+    connectionFail: "Error de conexión con OMDB.",
+    searchError: "Error al buscar películas en OMDB.",
+    loadingMovies: "🔎 Cargando películas...",
+    movieNotFound: "😢 Película no encontrada 😢",
+  },
+  fr: {
+    themeLight: "☀️ Clair",
+    themeDark: "🌙 Sombre",
+    logoAlt:
+      "Logo du service de streaming Devflix, avec des lettres rouges sur fond noir, promouvant des séries, des films et du divertissement en ligne.",
+    searchPlaceholder: "Rechercher des films",
+    searchAlt: "Bouton d'action de recherche !",
+    missingApiKey:
+      "Configurez la clé OMDB dans le fichier .env (VITE_OMDB_API_KEY).",
+    typeMovie: "Tapez le nom d'un film pour rechercher.",
+    connectionFail: "Échec de connexion à OMDB.",
+    searchError: "Erreur lors de la recherche de films sur OMDB.",
+    loadingMovies: "🔎 Chargement des films...",
+    movieNotFound: "😢 Film introuvable 😢",
+  },
+  de: {
+    themeLight: "☀️ Hell",
+    themeDark: "🌙 Dunkel",
+    logoAlt:
+      "Logo des Devflix-Streamingdienstes mit roter Schrift auf schwarzem Hintergrund für Serien, Filme und Online-Unterhaltung.",
+    searchPlaceholder: "Filme suchen",
+    searchAlt: "Such-Aktionsschaltfläche!",
+    missingApiKey:
+      "Konfigurieren Sie den OMDB-Schlüssel in der .env-Datei (VITE_OMDB_API_KEY).",
+    typeMovie: "Geben Sie einen Filmnamen zur Suche ein.",
+    connectionFail: "Verbindungsfehler mit OMDB.",
+    searchError: "Fehler bei der Filmsuche in OMDB.",
+    loadingMovies: "🔎 Filme werden geladen...",
+    movieNotFound: "😢 Film nicht gefunden 😢",
+  },
+  it: {
+    themeLight: "☀️ Chiaro",
+    themeDark: "🌙 Scuro",
+    logoAlt:
+      "Logo del servizio di streaming Devflix, con scritte rosse e sfondo nero, che promuove serie, film e intrattenimento online.",
+    searchPlaceholder: "Cerca film",
+    searchAlt: "Pulsante azione di ricerca!",
+    missingApiKey:
+      "Configura la chiave OMDB nel file .env (VITE_OMDB_API_KEY).",
+    typeMovie: "Digita il nome di un film da cercare.",
+    connectionFail: "Errore di connessione con OMDB.",
+    searchError: "Errore durante la ricerca dei film su OMDB.",
+    loadingMovies: "🔎 Caricamento film...",
+    movieNotFound: "😢 Film non trovato 😢",
+  },
+  ja: {
+    themeLight: "☀️ ライト",
+    themeDark: "🌙 ダーク",
+    logoAlt:
+      "赤い文字と黒い背景の Devflix ストリーミングサービスのロゴ。シリーズ、映画、オンラインエンターテインメントを紹介します。",
+    searchPlaceholder: "映画を検索",
+    searchAlt: "検索アクションボタン!",
+    missingApiKey:
+      ".env ファイルに OMDB キーを設定してください (VITE_OMDB_API_KEY)。",
+    typeMovie: "検索する映画名を入力してください。",
+    connectionFail: "OMDB との接続に失敗しました。",
+    searchError: "OMDB で映画を検索中にエラーが発生しました。",
+    loadingMovies: "🔎 映画を読み込み中...",
+    movieNotFound: "😢 映画が見つかりません 😢",
+  },
+  zh: {
+    themeLight: "☀️ 浅色",
+    themeDark: "🌙 深色",
+    logoAlt:
+      "Devflix 流媒体服务标志，红色字体配黑色背景，推广剧集、电影和在线娱乐。",
+    searchPlaceholder: "搜索电影",
+    searchAlt: "搜索按钮！",
+    missingApiKey: "请在 .env 文件中配置 OMDB 密钥 (VITE_OMDB_API_KEY)。",
+    typeMovie: "请输入要搜索的电影名称。",
+    connectionFail: "与 OMDB 连接失败。",
+    searchError: "在 OMDB 搜索电影时出错。",
+    loadingMovies: "🔎 正在加载电影...",
+    movieNotFound: "😢 未找到电影 😢",
+  },
+};
+
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
@@ -30,6 +152,7 @@ const App = () => {
     localStorage.getItem("devflix-language") || "pt",
   );
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const t = TRANSLATIONS[language] || TRANSLATIONS.pt;
 
   //Utilizando uma CHAVE de API do arquivo .env
   const apiKey = import.meta.env.VITE_OMDB_API_KEY;
@@ -42,15 +165,13 @@ const App = () => {
 
       if (!apiKey) {
         setMovies([]);
-        setErrorMessage(
-          "Configure a chave OMDB no arquivo .env (VITE_OMDB_API_KEY).",
-        );
+        setErrorMessage(t.missingApiKey);
         return;
       }
 
       if (!query) {
         setMovies([]);
-        setErrorMessage("Digite um nome de filme para pesquisar.");
+        setErrorMessage(t.typeMovie);
         return;
       }
 
@@ -66,7 +187,7 @@ const App = () => {
         const response = await fetch(`${apiUrl}?${params.toString()}`);
 
         if (!response.ok) {
-          throw new Error("Falha de conexão com a OMDB.");
+          throw new Error(t.connectionFail);
         }
 
         const data = await response.json();
@@ -81,12 +202,12 @@ const App = () => {
         setMovies(data.Search || []);
       } catch (error) {
         setMovies([]);
-        setErrorMessage(error.message || "Erro ao buscar filmes na OMDB.");
+        setErrorMessage(error.message || t.searchError);
       } finally {
         setIsLoading(false);
       }
     },
-    [apiKey, apiUrl],
+    [apiKey, apiUrl, t],
   );
 
   useEffect(() => {
@@ -114,7 +235,7 @@ const App = () => {
   return (
     <div id="App">
       <button className="themeToggle" onClick={toggleTheme}>
-        {theme === "dark" ? "☀️ Ligth" : "🌙 Dark"}
+        {theme === "dark" ? t.themeLight : t.themeDark}
       </button>
 
       <div className="languageSelector">
@@ -141,23 +262,19 @@ const App = () => {
         )}
       </div>
 
-      <img
-        id="Logo"
-        src={logo}
-        alt="Logotipo do serviço de streaming Devflix, com letras vermelhas e fundo preto, promovendo conteúdo de séries, filmes e entretenimento online."
-      />
+      <img id="Logo" src={logo} alt={t.logoAlt} />
 
       <div className="search">
         <input
           onKeyDown={(e) => e.key === "Enter" && searchMovies(search)}
           onChange={(e) => setSearch(e.target.value)}
           type="text"
-          placeholder="Pesquise por filmes"
+          placeholder={t.searchPlaceholder}
         />
         <img
           onClick={() => searchMovies(search)}
           src={lupa}
-          alt="Botão de ação para pesquisa!"
+          alt={t.searchAlt}
         />
       </div>
 
@@ -174,11 +291,11 @@ const App = () => {
           ))}
         </div>
       ) : isLoading ? (
-        <h2 className="empty">🔎 Carregando filmes...</h2>
+        <h2 className="empty">{t.loadingMovies}</h2>
       ) : errorMessage ? (
         <h2 className="empty">😢 {errorMessage}</h2>
       ) : (
-        <h2 className="empty">😢 Filme não encontrado 😢</h2>
+        <h2 className="empty">{t.movieNotFound}</h2>
       )}
 
       <Rodape link={"https://github.com/myrellap"}>myrella</Rodape>
