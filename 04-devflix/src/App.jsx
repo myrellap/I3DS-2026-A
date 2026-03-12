@@ -26,7 +26,9 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("one piece"); // termo para pesquina ao carregar o site
+    (async () => {
+      await searchMovies("one piece"); // termo para pesquina ao carregar o site
+    })();
   }, []);
 
   return (
