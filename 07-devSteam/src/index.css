@@ -6,8 +6,10 @@ body {
 }
 
 .container {
-  padding: 20px 80px;
+  padding: 40px 120px;
 }
+
+/* HEADER */
 
 .header {
   display: flex;
@@ -16,65 +18,113 @@ body {
 
   background: #171a21;
 
-  padding: 20px;
+  padding: 25px 60px;
+
+  border-bottom: 5px solid #1b2838;
 }
 
 .logo {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
+.logo img {
+  width: 80px;
+}
+
+.logo h1 {
+  font-size: 40px;
+}
+
 input {
-  width: 300px;
+  width: 420px;
 
-  padding: 10px;
+  padding: 12px;
 
-  background: #2d5878;
+  background: #3b6e8f;
 
   border: none;
 
   color: white;
+
+  font-size: 20px;
+
+  outline: none;
+}
+
+input::placeholder {
+  color: #c7d5e0;
+  font-style: italic;
 }
 
 .cart {
-  font-size: 24px;
+  font-size: 50px;
+  cursor: pointer;
 }
 
+/* TITULOS */
+
 section {
-  margin-top: 40px;
+  margin-top: 80px;
 }
+
+section h1 {
+  margin-bottom: 35px;
+  font-size: 40px;
+}
+
+/* CARDS PROMO */
 
 .promo-grid {
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .promo-card {
-  width: 220px;
+  width: 280px;
   background: #2c7fb4;
 }
 
 .promo-card img {
   width: 100%;
-  height: 300;
+  height: 380px;
 
   object-fit: cover;
 }
 
 .promo-info {
-  padding: 10px;
+  padding: 15px;
+}
+
+.promo-info h2 {
+  font-size: 22px;
 }
 
 .prices {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background: #344654;
+
+  padding: 10px;
+
+  margin-top: 15px;
 }
 
 .prices span {
-  background: #4c6b22;
-  padding: 5px 10px;
+  background: #6a9f00;
+
+  padding: 8px 14px;
+
+  color: #c6ff00;
+
+  font-size: 28px;
+
+  font-weight: bold;
 }
 
 button {
@@ -84,32 +134,74 @@ button {
 
   border: none;
 
-  padding: 12px 20px;
+  padding: 15px 20px;
 
   color: white;
 
   cursor: pointer;
 
-  margin-top: 10px;
+  margin-top: 20px;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+}
+
+/* OUTROS JOGOS */
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
 }
 
 .game-card {
+  width: 900px;
+
   display: flex;
   align-items: center;
 
   background: #2c7fb4;
-
-  margin-top: 20px;
 }
 
 .game-card img {
-  width: 250px;
-  height: 150px;
+  width: 300px;
+  height: 170px;
 
   object-fit: cover;
 }
 
 .game-info {
   flex: 1;
-  padding: 20px;
+
+  padding: 25px;
+}
+
+.game-info h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.game-info p {
+  color: #c7d5e0;
+  margin-bottom: 25px;
+}
+
+.game-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-price {
+  color: #c6ff00;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+section h1{
+  width: 900px;
+  margin: 0 auto 35px auto;
 }

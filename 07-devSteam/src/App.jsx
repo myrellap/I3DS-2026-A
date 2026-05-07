@@ -7,14 +7,14 @@ function App() {
     {
       id: 1,
       title: "Roblox",
-      image: "/src/assets/RobloxLogo.webp",
+      image: "/src/assets/Roblox.jpg",
       price: "R$99,90",
     },
 
     {
       id: 2,
       title: "The Sims",
-      image: "/src/assets/TheSimsLogo.webp",
+      image: "/src/assets/The sims.avif",
       price: "R$99,90",
     },
 
@@ -37,13 +37,29 @@ function App() {
 
     {
       id: 5,
-      title: "GTA 5",
+      title: "The Last Of Us",
       category: "RPG, Mundo Aberto",
-      image: "/src/assets/GTALogo.jpg",
+      image: "/src/assets/The Last Of Us.webp",
+      price: "R$149,90",
+    },
+
+      {
+      id: 6,
+      title: "Super Mario",
+      category: "RPG, Mundo Aberto",
+      image: "/src/assets/super mario.jpeg",
+      price: "R$149,90",
+    },
+
+      {
+      id: 7,
+      title: "Fortinite",
+      category: "RPG, Mundo Aberto",
+      image: "/src/assets/fortinite.jpeg",
       price: "R$149,90",
     },
   ];
-
+  
   return (
     <div className="container">
       <Header />
