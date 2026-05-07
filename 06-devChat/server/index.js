@@ -12,7 +12,7 @@ const io = require("socket.io")(server, {
   // Importa Socket.io e configura para o servidor HTTP
   // CORS (Cross-Origin Resource Sharing): permite que clientes de outros domínios/IPs se conectem
   // Altere o IP para o IP da máquina onde o servidor está rodando
-  cors: { origin: "http://localhost:3000" },
+  cors: { origin: "*" },
   // Exemplo: "http://localhost:5173" para desenvolvimento local
   // Exemplo: "http://seu.ip.aqui:5173" para rede
 });
@@ -25,7 +25,7 @@ const PORT = 3001; // Porta na qual o servidor irá escutar conexões
 io.on("connection", (socket) => {
   // "socket" representa a conexão de um único cliente
   // Cada cliente que se conecta recebe um novo objeto "socket"
-  // socket.id: ID único do cliente (gerado automaticamente)
+  // socket.id: ID único do c liente (gerado automaticamente)
   // socket.data: Objeto para armazenar dados do cliente (username, etc)
 
   // ==================================

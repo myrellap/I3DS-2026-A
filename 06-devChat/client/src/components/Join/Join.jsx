@@ -1,35 +1,53 @@
-import { useRef } from "react"
+import { useRef } from "react";
 import style from "./Join.module.css";
 
-import {Input, Button} from "@mui/material";
+import { Input, Button } from "@mui/material";
 import io from "socket.io-client";
 
-const Join = () => {
- const usernameRef = useRef();
+import logo from "../../assets/devChat.png";
 
- const handleSubmit = async ()=> {
-   const username = usernameRef.current.value;
-   if (!username.trim()) return;
+const Join = (props) => {
+  const usernameRef = useRef();
 
-   const socket = io.connect("http://localhost:3001");
-   socket.emit("set_username", username);
- };
+  const handleSubmit = async () => {
+    const username = usernameRef.current.value;
+    if (!username.trim()) return;
 
- const handleKeyPress = (e) => {
-  if (e.Key === "Enter"){
-    handleSubmit();
-  }
- };
+    const socket = io.connect(`http://${window.location.hostname}:3001`);
+    socket.emit("set_username", username);
+
+    props.setSocket(socket);
+    props.setChatVisibility(true);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
   return (
-    <div>
-        <h2>Bem vindo ao devChat</h2>
-        <Input  inputRef={usernameRef} placeholder="Nome de usuário" onKeyDown={handleKeyPress}/>
-        <Button sx={{mt:2, mb:2}} variant="contained" onClick={() => handleSubmit()}>
-            Entrar
-        </Button>
-    </div>
-  )
-}
+    <>
+      <div className={style.dev_logo}>
+        <h2>Bem-vindo ao devChat!</h2>
+        <img src={logo} alt="Logo do DevChat" />
+      </div>
 
-export default Join
-     
+      <div className={style.join_container}>
+        <Input
+          inputRef={usernameRef}
+          placeholder="Nome de usuário"
+          onKeyDown={handleKeyPress}
+        />
+        <Button
+          sx={{ mt: 2, mb: 2 }}
+          variant="contained"
+          onClick={() => handleSubmit()}
+        >
+          Entrar
+        </Button>
+      </div>
+    </>
+  );
+};
+
+export default Join;
