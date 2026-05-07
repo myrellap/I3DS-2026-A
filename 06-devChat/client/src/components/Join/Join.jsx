@@ -13,13 +13,13 @@ const Join = (props) => {
     const username = usernameRef.current.value;
     if (!username.trim()) return;
 
-    const socket = io.connect(`http://${window.location.hostname}:3001`);
+    const socket = io.connect("http://localhost:3001");
     socket.emit("set_username", username);
 
     props.setSocket(socket);
     props.setChatVisibility(true);
   };
-
+  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSubmit();
@@ -28,11 +28,11 @@ const Join = (props) => {
   return (
     <>
       <div className={style.dev_logo}>
-        <h2>Bem-vindo ao devChat!</h2>
         <img src={logo} alt="Logo do DevChat" />
       </div>
 
       <div className={style.join_container}>
+        <h2>Bem-vindo ao devChat!</h2>
         <Input
           inputRef={usernameRef}
           placeholder="Nome de usuário"

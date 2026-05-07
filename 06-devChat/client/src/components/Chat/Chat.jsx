@@ -30,7 +30,7 @@ const Chat = (props) => {
     props.socket.emit("message", message);
 
     messageRef.current.value = "";
-    messageRef.current.focus();
+    message.Ref.current.focus();
   };
 
   const getEnterKey = (e) => {
